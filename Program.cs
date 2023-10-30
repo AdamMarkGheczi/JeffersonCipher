@@ -12,7 +12,8 @@
 
             string encrypted = jc.Encrypt(plainText, diskConfig, 2);
 
-            string decrypted = jc.Decrypt(encrypted, diskConfig, 2);
+            JeffersonCipher jc2 = new JeffersonCipher(jc.GetDisks());
+            string decrypted = jc2.Decrypt(encrypted, diskConfig, 2);
 
             Console.WriteLine($"Plaintext: {plainText}");
             Console.WriteLine($"Encrypted: {encrypted}");

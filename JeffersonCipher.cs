@@ -15,6 +15,12 @@ namespace Jefferson
             for (int i = 0; i < numberOfDisks; i++) disks[i] = FisherYates();
         }
 
+        public JeffersonCipher(string[] inputDisks)
+        {
+            disks = new string[inputDisks.Length];
+            for (int i = 0; i < inputDisks.Length; i++) disks[i] = inputDisks[i];
+        }
+
         public string Encrypt(string input, int[] diskOrder, int rowOffset) => TransformText(input, diskOrder, rowOffset, forward: true);
         public string Decrypt(string input, int[] diskOrder, int rowOffset) => TransformText(input, diskOrder, rowOffset, forward: false);
 
